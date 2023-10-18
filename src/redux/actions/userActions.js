@@ -26,8 +26,7 @@
 
 // src/redux/actions/userActions.js
 import axios from 'axios';
-
-const BASE_URL = 'https://e-react-node-backend-22ed6864d5f3.herokuapp.com'; // Update with your Heroku app URL
+import { BASE_URL } from '../../api';
 
 export const fetchUsers = () => async (dispatch) => {
   try {
@@ -48,3 +47,28 @@ export const fetchPatientRegistration = () => async (dispatch) => {
   }
 };
 
+export const doctorLogin = (username, password) => async (dispatch) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/api/users/doctor/login`, {
+      Username: username,
+      Password: password,
+    });
+    console.log("res",response);
+    dispatch({ type: 'USER_LOGIN', payload: response.data });
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
+
+export const patientLogin = (username, password) => async (dispatch) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/api/users/patient/login`, {
+      Username: username,
+      Password: password,
+    });
+    console.log("res",response);
+    dispatch({ type: 'USER_LOGIN', payload: response.data });
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
