@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Header from '../components/Header';
 import '../styles/screens/LandingPage.css';
 import reactLogo from "./main-image.jpg";
-import { patientLogin } from '../redux/actions/userActions';
+import { patientLogin } from '../api';
 
 const PatientLogin = () => {
   const dispatch = useDispatch();
@@ -17,7 +17,8 @@ const PatientLogin = () => {
     password = e.target.value;
   };
   const onLogin = async (e) => {
-    dispatch(await patientLogin(username, password));
+    const result = await patientLogin(username, password);
+    dispatch({ type: 'USER_LOGIN', payload: result });
     e.preventDefault();
     navigate("/");
   };

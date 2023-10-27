@@ -46,29 +46,3 @@ export const fetchPatientRegistration = () => async (dispatch) => {
     dispatch({ type: 'FETCH_PATIENT_REGISTRATION_FAILURE' });
   }
 };
-
-export const doctorLogin = (username, password) => async (dispatch) => {
-  try {
-    const response = await axios.post(`${BASE_URL}/api/users/doctor/login`, {
-      Username: username,
-      Password: password,
-    });
-    console.log("res",response);
-    dispatch({ type: 'USER_LOGIN', payload: response.data });
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
-};
-
-export const patientLogin = (username, password) => async (dispatch) => {
-  try {
-    const response = await axios.post(`${BASE_URL}/api/users/patient/login`, {
-      Username: username,
-      Password: password,
-    });
-    console.log("res",response);
-    dispatch({ type: 'USER_LOGIN', payload: response.data });
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
-};

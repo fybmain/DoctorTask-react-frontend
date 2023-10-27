@@ -1,14 +1,15 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, useStore } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import Header from '../components/Header';
 import '../styles/screens/LandingPage.css';
 import reactLogo from "./main-image.jpg";
-import { doctorLogin } from '../redux/actions/userActions';
+import { doctorLogin } from '../api';
 
 const DoctorLogin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const store = useStore();
   let username="DOC-001", password="DOC-001";
   const onUsername = (e) => {
     username = e.target.value;
@@ -17,8 +18,9 @@ const DoctorLogin = () => {
     password = e.target.value;
   };
   const onLogin = async (e) => {
-    dispatch(await doctorLogin(username, password));
     e.preventDefault();
+    const result = await doctorLogin(username, password);
+    dispatch({ type: 'USER_LOGIN', payload: result });
     //navigate("/");
   };
   
@@ -29,7 +31,7 @@ const DoctorLogin = () => {
       <label for="password">Password:</label><br/>
       <input type="password" id="password" name="password" value={password} onChange={onPassword}/><br/><br/>
 
-      <input type="submit" value="Login" />
+      <input type="submit" value="Login"/>
     </form>
   </div>;
 };

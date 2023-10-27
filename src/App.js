@@ -16,7 +16,6 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <div>User Info: { JSON.stringify(store.getState()) }</div>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/DBConnection" element={<DBConnection />} />

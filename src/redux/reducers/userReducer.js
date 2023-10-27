@@ -10,6 +10,7 @@ const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'USER_LOGIN':
       console.log("action: ", action);
+      console.log("updated: ", { ...state, login: action.payload, users: ["1"] });
       return { ...state, login: action.payload };
     case 'FETCH_USERS':
       return { ...state, users: action.payload };
