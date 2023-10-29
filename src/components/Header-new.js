@@ -9,13 +9,15 @@ function Header() {
     <label for="check" class="checkbtn">
       <i class="fa fa-bars"></i>
     </label>
-    <label class="logo">E-hospital</label>
+    <label class="logo"><span>e</span>Hospital</label>
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#About">About Us</a></li>
+      <li><a href="/specialities">Specialities</a></li>
+      <li><a href="/AboutUs">About Us</a></li>
       <li><a href="/contact">Contact US</a></li>
-      <li><a href="#Login">Login</a></li>
+      <li><a href="/LogIn">LogIn</a></li>
+      <li><a href="/signUp">SignUp</a></li>
       <li><a href="/DBConnection">DB Connection</a></li>
     </ul>
   </nav>
