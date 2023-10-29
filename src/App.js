@@ -23,7 +23,7 @@ import Specialities from './screens/Specialities';
 import EmergencyLocations from './screens/EmergencyLocations';
 import 'tachyons' ;
 import BreastCancerML from './screens/eir_breast_cancer_checker'
-
+import Tasks from './screens/Tasks';
 
 const initialState ={
   user:{
@@ -73,6 +73,7 @@ class App extends Component {
           <Route path="/LabApp" element={<LabApp />} /> 
           <Route path="/specialities" element={<Specialities />} />
           <Route path="/emergencyLocations" element={<EmergencyLocations />} />
+          <Route path="/Tasks" element={<Tasks />} />
         </Routes>
         <Footer />
       </BrowserRouter>
