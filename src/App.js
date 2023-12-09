@@ -214,8 +214,8 @@ class App extends Component {
         <Header clearUser={this.clearUser} user={this.state.user} />
 
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/LandingPageHome" element={<LandingPageHome />} />
+          <Route path="/" element={<LandingPageHome />} />
+          <Route path="/LandingPage" element={<LandingPage />} />
           <Route path="/ViewRating" element={<ViewRating />} />
           <Route path="/LogIn" element={this.state.user.type === 'NotLoggedIn' ? <LogIn loadUser={this.loadUser} loadTempUser = {this.loadTempUser} /> : <Navigate to={`${this.state.user.startInPage}`} />} />
           <Route path="/SignUp" element={this.state.user.type === 'NotLoggedIn' ? <SignUp loadUser={this.loadUser} /> : <Navigate to={`${this.state.user.startInPage}`} />} />

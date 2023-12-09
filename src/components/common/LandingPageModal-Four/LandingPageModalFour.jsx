@@ -75,7 +75,7 @@ const LandingPageModalFour = ({ closeFn = () => null, open = false }) => {
             <button
         type="button"
         className="button"
-        onClick={() => {window.location.href="//e-react-frontend-55dbf7a5897e.herokuapp.com/"}}
+        onClick={() => {window.location.href="//e-react-frontend-55dbf7a5897e.herokuapp.com/LandingPage"}}
       >
         Open React: Visit React platform!
       </button>
