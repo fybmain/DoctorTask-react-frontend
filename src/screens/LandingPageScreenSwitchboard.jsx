@@ -6,8 +6,8 @@ import LandingPageModalFour from '../components/common/LandingPageModal-Four/Lan
 const ScreenSwitchboard = () => {
   return (
     <Routes>
-      <Route path="/" element={<LandingPageModalFour/>} />
-      <Route path="/LandingPageHome" element={<LandingPageHome/>} />
+      <Route path="/" element={<LandingPageHome/>} />
+      {/* <Route path="/LandingPageHome" element={<LandingPageHome/>} /> */}
     </Routes>
   );
 };
