@@ -147,7 +147,7 @@ const ChatComponent = ({ userInfo }) => {
       userInput.value = '';
       try {
         let url;
-        let prefix = "https://48so6vynld.execute-api.ca-central-1.amazonaws.com";
+        let prefix = "http://api.e-hospital.ca:8000";
         if (patientData) {
           url = `${prefix}/doctor/${userInfo.id}/${patientData.id}/`
         }
@@ -248,7 +248,7 @@ const ChatComponent = ({ userInfo }) => {
     <div className="chat-page-container">
       <div className="chat-container">
         <div className="chat-header">
-          <h1>Medical Chat Assessment</h1>
+          <h1>Medical Chatbot</h1>
         </div>
         <div className="chat-output" id="chat-output" ref={chatOutputRef}>
           {messages}
