@@ -97,7 +97,7 @@ const LandingPageModalThree = ({ closeFn = () => null, open = false }) => {
             <button
         type="button"
         className="save-button3"
-        onClick={() => {window.location.href="//e-react-frontend-55dbf7a5897e.herokuapp.com/LandingPage"}}
+        onClick={() => {window.location.href="LandingPage"}}
       >
         E-Hospital
       </button>
