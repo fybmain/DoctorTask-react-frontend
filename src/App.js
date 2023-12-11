@@ -37,6 +37,7 @@ import LabAdminRegistration from './screens/SignUp/LabAdminRegistration'
 import LabApp from './screens/SignUp/LabApp'
 import Specialities from './screens/Specialities';
 import Services from './screens/Services';
+import ProfilePage from './screens/profile.js';
 import EmergencyLocations from './screens/EmergencyLocations';
 import 'tachyons';
 import SkinCancerMlPage from './screens/skinCancerMlPage';
@@ -274,6 +275,7 @@ class App extends Component {
           <Route path="/specialities" element={<Specialities />} />
           <Route path="/serviceHome" element={<ServicesHomePage/>}/>
           <Route path="/services" element={<HealthServices/>}/>
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/bookAppServices" element={<Services/>}/>
           <Route path="/doctorServices" element={<DoctorService/>} />
           <Route path="/patientServices" element={<PatientService/>} />
