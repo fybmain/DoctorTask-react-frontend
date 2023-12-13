@@ -46,10 +46,10 @@ const LandingPageModalThree = ({ closeFn = () => null, open = false }) => {
         <motion.div 
         drag
         dragConstraints={{
-        top: -50,
-        left: -50,
-        right: 50,
-        bottom: 50,}}
+          top: 0,
+          left: 10,
+          right: 10,
+          bottom: 10,}}
         className="modal gray-gradient"
         variants={dropIn}
         initial="hidden"
@@ -57,88 +57,106 @@ const LandingPageModalThree = ({ closeFn = () => null, open = false }) => {
         exit="exit"
         >
           <SolutionsBGN /> 
-          
           <div className="modal--header">
-          <h4 className="modal--header h4" style={{textAlign: 'center', 
-          fontWeight: 'normal', textShadow: "1px 2px 1px rgb(100, 100, 100)"}} 
-          >Our e-Hospital platform offers <br/>convenient online consultations, <br/>
-          medical records access, and <br/>appointment scheduling. </h4>
+          <h4  className="modal--header h4" style={{
+          fontWeight: 'normal', textShadow: "1px 2px 1px rgb(45, 45, 45)"}} 
+          >Our <font color= "lightgreen" >e-Hospital</font> platform offers Comprehensive<br/>
+           Medical Health Records, a Centeric Medical <br/>Chatbot,and Medical Tasks Planning. </h4>
           </div>
-        
+
+
           <div className="modal--header">
-          <h5 className="modal--header h5" style={{textAlign: 'center', 
-          fontWeight: 'normal',textShadow: "1px 2px 1px rgb(100, 100, 100)" }} 
-          >With our Healthcare Provider Digital Twin, <br/>you can monitor and manage
-           your health <br/>from the comfort of your home.</h5>
+          <h4  className="modal--header h4" style={{
+          fontWeight: 'normal', textShadow: "1px 2px 1px rgb(45, 45, 45)"}} 
+          >With our <font color= "lightgreen" >Healthcare Provider Digital Twin</font>, <br/>you can monitor and manage
+          your health <br/>from the comfort of your home.</h4>
           </div>
 
           <div className="modal--header">
-          <h6 className="modal--header h6" style={{textAlign: 'center', 
-          fontWeight: 'normal',textShadow: "1px 2px 1px rgb(100, 100, 100)" }} 
-          >Experience the precision<br/> and effectiveness of robotic<br/> surgery for 
-          complex medical procedures</h6>
-          </div>
-          
-          <div className="modal--header">
-          <h7 className="modal--header h7" style={{textAlign: 'center', 
-          fontWeight: 'normal', textShadow: "1px 2px 1px rgb(100, 100, 100)"}} 
-          >Our Medical Digital Assistance <br/>provides real-time medical guidance <br/> 
-          and support through AI-powered chatbots</h7>
+          <h4  className="modal--header h4" style={{
+          fontWeight: 'normal', textShadow: "1px 2px 1px rgb(45, 45, 45)"}} 
+          >Experience the precision<br/> and effectiveness of <font color= "lightgreen" >Robotic Surgery</font> for <br/>
+          complex medical procedures.</h4>
           </div>
 
           <div className="modal--header">
-          <h8 className="modal--header h8" style={{textAlign: 'center', 
-          fontWeight: 'normal',textShadow: "1px 2px 1px rgb(100, 100, 100)" }} 
-          >Leverage our advanced medical informatics <br/>to analyze patient data and <br/> 
-          make informed decisions for better healthcare outcomes</h8>
+          <h4  className="modal--header h4" style={{
+          fontWeight: 'normal', textShadow: "1px 2px 1px rgb(45, 45, 45)"}} 
+          >Leverage our <font color= "lightgreen" >Intelligent Health Informatics</font> <br/>to analyze patient data and make informed<br/> 
+           decisions for better healthcare outcomes.</h4>
           </div>
 
-          <div> 
-            <button
-        type="button"
-        className="save-button3"
-        onClick={() => {window.location.href="LandingPage"}}
-      >
-        E-Hospital
-      </button>
-      </div>
-          
-      <div> 
-            <button
-        type="button"
-        className="save-button4"
-        onClick={() => {window.location.href="http://www.e-hospital.ca/under-developement"}}
-      >
-        Healthcare Provider Digital Twin
-      </button>
-      </div>   
-      <div> 
-            <button
-        type="button"
-        className="save-button5"
-        onClick={() => {window.location.href="http://www.e-hospital.ca/under-developement"}}
-      >
-        Robotic Surgery
-      </button>
-      </div>
-      <div> 
-            <button
-        type="button"
-        className="save-button6"
-        onClick={() => {window.location.href="http://www.e-hospital.ca/under-developement"}}
-      >
-        Medical Digital Assistance
-      </button>
-      </div>
-      <div> 
-            <button
-        type="button"
-        className="save-button7"
-        onClick={() => {window.location.href="http://www.e-hospital.ca/under-developement"}}
-      >
-        Advanced Medical Informatics
-      </button>
-      </div>
+          <div className="modal--header">
+          <h4  className="modal--header h4" style={{
+          fontWeight: 'normal', textShadow: "1px 2px 1px rgb(45, 45, 45)"}} 
+          ><font color= "lightgreen" >Our Medical Digital Assistance </font><br/>provides real-time medical guidance <br/> 
+          and support through AI-powered chatbots.</h4>
+          </div>
+
+          <div > 
+          <button
+          type="button"
+          className="save-buttonY"
+          style={{
+          width: "25%", margin: 0,
+          fontWeight: 'normal',textShadow: "1px 2px 1px rgb(100, 100, 100)" }} 
+          onClick={() => {window.location.href="LandingPage"}}
+          >
+          E-Hospital
+          </button>
+          </div>
+
+          <div > 
+          <button
+          type="button"
+          className="save-buttonY1"
+          style={{
+          width: "25%", margin: 0,
+          fontWeight: 'normal',textShadow: "1px 2px 1px rgb(100, 100, 100)" }} 
+          onClick={() => {window.location.href="http://www.e-hospital.ca/under-developement"}}
+          >
+          Healthcare Provider Digital Twin
+          </button>
+          </div>
+
+          <div > 
+          <button
+          type="button"
+          className="save-buttonY2"
+          style={{
+          width: "25%", margin: 0,
+          fontWeight: 'normal',textShadow: "1px 2px 1px rgb(100, 100, 100)" }} 
+          onClick={() => {window.location.href="http://www.e-hospital.ca/under-developement"}}
+          >
+          Robotic Surgery
+          </button>
+          </div>
+
+          <div > 
+          <button
+          type="button"
+          className="save-buttonY3"
+          style={{
+          width: "25%", margin: 0,
+          fontWeight: 'normal',textShadow: "1px 2px 1px rgb(100, 100, 100)" }} 
+          onClick={() => {window.location.href="http://www.e-hospital.ca/under-developement"}}
+          >
+          Advanced Medical Informatics
+          </button>
+          </div>
+
+          <div > 
+          <button
+          type="button"
+          className="save-buttonY4"
+          style={{
+          width: "25%", margin: 0,
+          fontWeight: 'normal',textShadow: "1px 2px 1px rgb(100, 100, 100)" }} 
+          onClick={() => {window.location.href="http://www.e-hospital.ca/under-developement"}}
+          >
+          Medical Digital Assistance
+          </button>
+          </div>
           <ModalButton onClick={closeFn} label="Close" />
         </motion.div>
       </div>

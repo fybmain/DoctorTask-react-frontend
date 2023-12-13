@@ -3,6 +3,7 @@ import Modal from '../LandingPageModal/LandingPageModal';
 import { motion } from "framer-motion";
 import '../../../styles/components/LandingPageStyles/LandingPageExtra.css';
 import '../../../styles/components/LandingPageStyles/LandingPageHome.css';
+import SolutionsBGN from '../../../styles/screens/LandingPageSolutionsVideo';
 
 const dropIn = {
   hidden: {
@@ -41,22 +42,23 @@ const LandingPageModalTwo = ({ closeFn = () => null, open = false }) => {
         <motion.div 
         drag
         dragConstraints={{
-        top: -50,
-        left: -50,
-        right: 50,
-        bottom: 50,}}
+          top: 0,
+          left: 10,
+          right: 10,
+          bottom: 10,}}
         className="modal blue-gradient"
         variants={dropIn}
         initial="hidden"
         animate="visible"
         exit="exit"
         >
+          <SolutionsBGN /> 
           <div className="modal--header">
           <br/> <br/><br/> <br/><br/>
-          <h2 className="modal--header h2">Our Mission</h2>
+          <h2 className="modal--header h2" style={{textAlign: 'center', textShadow: "1px 1.1px 1px rgb(45, 45, 45)"}}>Our Mission</h2>
           </div>
           <div className="modal--body">
-          <h2 className="modal--body h2" style={{textAlign: 'justify', fontWeight: 'normal', lineHeight: 1.5}}><em>"Engineering Smarter Medicine"</em></h2>
+          <h2 className="modal--body h2" style={{textAlign: 'center', fontWeight: 'normal', lineHeight: 1.5,textShadow: "1px 1.5px 1px rgb(45, 45, 45)"}}><em>"Engineering Smarter Medicine"</em></h2>
           </div>
           <ModalButton onClick={closeFn} label="Close" />        
         </motion.div>
