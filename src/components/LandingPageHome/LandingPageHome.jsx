@@ -30,7 +30,7 @@ const LandingPageHome = ({}) => {
           data-modal="LandingPageModal-Three"
           className="save-button2"
           >
-          Solutions
+          AI Solutions
           </motion.button>
         <motion.button
         whileHover={{ scale: 1.1 }}

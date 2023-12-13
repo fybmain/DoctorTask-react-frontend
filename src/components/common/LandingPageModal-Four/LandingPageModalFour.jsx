@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import '../../../styles/components/LandingPageStyles/LandingPageExtra.css';
 import '../../../styles/components/LandingPageStyles/LandingPageHome.css';
 import { useNavigate } from 'react-router-dom';
+import SolutionsBGN from '../../../styles/screens/LandingPageSolutionsVideo';
 
 const dropIn = {
     hidden: {
@@ -45,41 +46,47 @@ const LandingPageModalFour = ({ closeFn = () => null, open = false }) => {
         <motion.div 
         drag
         dragConstraints={{
-        top: -50,
-        left: -50,
-        right: 50,
-        bottom: 50,}}
+          top: 0,
+          left: 10,
+          right: 10,
+          bottom: 10,}}
         className="modal gray-gradient"
         variants={dropIn}
         initial="hidden"
         animate="visible"
         exit="exit"
         >
+          <SolutionsBGN /> 
           <div className="modal--header">
           <br/>
           <h2 className="modal--header h2">Contact Us</h2>
           <br/> <br/><br/>
           </div>
           <div className="modal--header">
-          <h3 className="modal--header h3" style={{textAlign: 'center', fontWeight: 'normal', }}>If you have any questions or concerns, please feel free to contact us: 
+          <h3 className="modal--header h3" style={{textAlign: 'center', fontWeight: 'normal', textShadow: "1px 1.1px 1px rgb(45, 45, 45)"}}>If you have any questions or concerns, please feel free to contact us: 
           <br/> <br/>
           Phone: +1613-804-8000
-          <br/> <br/>
+          <br/> <br/> <br/><br/>
           Email: info@ehospital.com
-          <br/> <br/><br/>
+          <br/> <br/>
+          Phone: +1 6138048000
+          <br/> <br/>
           Address: 12 Monet Crt. Ottawa, Ontario, K1T 4B6
           </h3>
           </div>
 
-          <div> 
-            <button
-        type="button"
-        className="button"
-        onClick={() => {window.location.href="LandingPage"}}
-      >
-        Open React: Visit React platform!
-      </button>
-      </div>
+      <div > 
+          <button
+          type="button"
+          className="save-buttonY5"
+          style={{
+          width: "25%", margin: 0,
+          fontWeight: 'normal',textShadow: "1px 2px 1px rgb(100, 100, 100)" }} 
+          onClick={() => {window.location.href="LandingPage"}}
+          >
+          Go to the E-Hospital platform!
+          </button>
+          </div>
           <ModalButton onClick={closeFn} label="Close" />                
         </motion.div>
       </div>

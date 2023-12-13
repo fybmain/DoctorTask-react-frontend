@@ -18,18 +18,13 @@
     padding: 20px;
   }
   .landing-body h1 {
-    /* position: absolute;
-    bottom: 10em;
-    left: 6em; */
     font-size: 64px;
     color: rgb(255, 255, 255); 
     text-align: center;
     
 }
 .landing-body h2 {
-  /* position: absolute;
-  bottom: 10em;
-  left: 6em; */
+
   font-size: 54px;
   color: rgb(255, 255, 255); 
   text-align: center;
@@ -39,7 +34,7 @@
 
   
   .modal--mask {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.719);
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -50,6 +45,7 @@
     right: 0;
     left: 0;
     z-index: 9998;
+
   }
   
   /* .modal-window {
@@ -57,17 +53,19 @@
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
     min-width: 70%;
   } */
-  
+
   .modal--header{
     margin: 0;
-    
     color: rgb(123, 255, 0); 
   }
   .modal--header h1{
     margin: 10;
     padding-top: 3.5rem;
-    color: rgb(0, 17, 255); 
+    align-self: stretch;
+    text-align: 'center';
+    color: rgb(255, 255, 255); 
     font-size: 40px;
+    
   }
   .modal--header h2{
     margin: 10;
@@ -84,28 +82,28 @@
     padding-top: 2rem;
   }
   .modal--header h4{
-    margin: 0;
-    color: rgb(255, 255, 255); 
-    font-size: 20px;
-    position: fixed;
-    bottom: 19.5em;
-    left: 18em;
+    
+      color: rgb(255, 255, 255); 
+      padding-top: 95px;
+      margin: -20px;
+      text-align: left;
+      padding-left: 180px; 
+      font-size: 20px;
+
+  
   }
   .modal--header h5{
-    margin: 0;
-    color: rgb(255, 255, 255); 
-    font-size: 20px;
-    position: fixed;
-    bottom: 13em;
-    left: 43em;
+      text-align: center;
+      
   }
   .modal--header h6{
-    margin: 0;
-    color: rgb(255, 255, 255); 
-    font-size: 20px;
-    position: fixed;
-    bottom: 14.5em;
-    left: 43em;
+    
+    text-align: center;
+      margin: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 0px;
+      font-size: 20px;
   }
   .modal--header h7{
     margin: 0;
@@ -149,8 +147,9 @@
   .modal--body h1{
     margin: 0;
     
-    color: rgb(0, 0, 0); 
+    color: rgb(255, 255, 255); 
     font-size: 20px;
+    
   }
   .modal--body h2{
     margin: 0;

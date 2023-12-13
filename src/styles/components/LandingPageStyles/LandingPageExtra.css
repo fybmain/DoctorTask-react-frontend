@@ -114,14 +114,25 @@
   
   .landingpage-container, .modal {
     width: clamp(90%, 700px, 90%);
+    
     height: min(90%, 610px);
   
     margin: auto;
-    padding: 0 4rem;
+    padding: 0 8rem;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    background-color: rgba(0, 0, 0, 0.719);
+    flex-flow: column nowrap;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 9998;
+    
+    
   }
   
   .landingpage-container, .orange-gradient {
@@ -174,6 +185,88 @@
     color: var(--light);
     font-weight: bold;
     font-size: 1.1em;
+  }
+  .landingpage-container, .save-buttonZ {
+    border: 0;
+  align-items: center;
+  /* padding-top: 30%; */
+  transform: translate(-50%, -50%);
+  background: rgb(0, 47, 255);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 21px;
+    
+  }
+  .landingpage-container, .save-buttonY {
+
+    position: absolute;
+    top: 15%;
+    left: 55%;
+  }
+  .landingpage-container, .save-buttonY1 {
+
+    position: absolute;
+    top: 30%;
+    left: 55%;
+    
+  }
+  .landingpage-container, .save-buttonY2 {
+
+    position: absolute;
+    top: 45%;
+    left: 55%;
+  }
+
+  .landingpage-container, .save-buttonY3 {
+
+    position: absolute;
+    top: 60%;
+    left: 55%;
+  }
+  .landingpage-container, .save-buttonY4 {
+    position: absolute;
+    top: 75%;
+    left: 55%;
+  }
+
+  .landingpage-container, .save-buttonY5 {
+    position: absolute;
+    top: 50%;
+    left: 37%;
+    
+  }
+  .landingpage-container, .save-buttonX1 {
+    border: 0;
+  background: lightgreen;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 21px;
+  }
+  .landingpage-container, .save-buttonX2 {
+    border: 0;
+  position: absolute;
+  top: 8%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  background: lightgreen;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 21px;
+  }
+  .landingpage-container, .save-buttonX3 {
+    border: 0;
+  position: absolute;
+  top: 40%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  background: lightgreen;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 21px;
   }
   .landingpage-container, .save-button3 {
     position: fixed;
