@@ -14,57 +14,45 @@ export const mainListItems = (
   <React.Fragment>
     
 
-    <ListItemButton component={Link} to={"/Admin"}>
+    <ListItemButton component={Link} to={"/Admin/newuser"}>
       <ListItemIcon>
         <PersonAddAlt1Icon />
       </ListItemIcon>
-      <ListItemText primary="New User Notification" />
+      <ListItemText primary="New User Registration" />
+    </ListItemButton>
+
+    <ListItemButton component={Link} to={"/Admin/usermanagement"}>
+      <ListItemIcon>
+        <PersonAddAlt1Icon />
+      </ListItemIcon>
+      <ListItemText primary="User Management" />
     </ListItemButton>
     
-    <ListItemButton component={Link} to={"/Admin/dochelp"}>
+    <ListItemButton component={Link} to={"/Admin/helpinquiry"}>
       <ListItemIcon>
         <MedicalServicesIcon />
       </ListItemIcon>
-      <ListItemText primary="Doctor Tech Help" />
+      <ListItemText primary="Help Inquiry" />
     </ListItemButton>
 
-    <ListItemButton component={Link} to={"/Admin/clinichelp"}>
+    
+    <ListItemButton component={Link} to={"/Admin/Message"}>
       <ListItemIcon>
-        <DeviceUnknownIcon />
+       < HelpIcon />
       </ListItemIcon>
-      <ListItemText primary="Clinic Tech Help" />
+      <ListItemText primary="Messages"   />
     </ListItemButton>
 
-    <ListItemButton component={Link} to={"/Analytic"}>
+
+
+    <ListItemButton component={Link} to={"/Admin/data"}>
       <ListItemIcon>
        < AutoGraphIcon />
       </ListItemIcon>
       <ListItemText primary="Data Analysis"   />
     </ListItemButton>
 
-
-    <ListItemButton component={Link} to={"/Admin/contact"}>
-      <ListItemIcon>
-       < HelpIcon />
-      </ListItemIcon>
-      <ListItemText primary="Contact Us"   />
-    </ListItemButton>
-
-   
-    <ListItemButton component={Link} to={"/Admin/review"}>
-      <ListItemIcon>
-       < MessageIcon />
-      </ListItemIcon>
-      <ListItemText primary="Reviews"   />
-    </ListItemButton>
-
-    <ListItemButton component={Link} to={"/Admin/joinus"}>
-      <ListItemIcon>
-       < PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Join Us"   />
-    </ListItemButton>
-
+  
 
   </React.Fragment>
 );

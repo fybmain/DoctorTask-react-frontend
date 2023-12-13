@@ -8,11 +8,11 @@ import AdminSideBar from "../components/ClinicalStaffComponents/ClinicalStaffSid
 
 function ClinicalStaffLayout(userInfo) {
     const admin_id =userInfo.adminInfo.id;
-/*
-    if(userInfo.adminInfo.type!=="Admin"){
+    
+    if(userInfo.adminInfo.type!=="Clinic"){
         return <Navigate to="/"/>
     }
- */   
+
     return(
         <>
         <Box sx={{ display: 'flex' }}>

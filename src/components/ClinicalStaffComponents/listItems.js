@@ -14,26 +14,18 @@ export const mainListItems = (
     
 
         
-    <ListItemButton component={Link} to={"/ClinicalStaff/DoctorTask"}>
+    <ListItemButton component={Link} to={"/ClinicalStaff/doctormanagement"}>
       <ListItemIcon>
         <MedicalServicesIcon />
       </ListItemIcon>
-      <ListItemText primary="Doctor Required Task" />
+      <ListItemText primary="Doctor Management" />
     </ListItemButton>
 
-    <ListItemButton component={Link} to={"/ClinicalStaff/NewPatient"}>
+    <ListItemButton component={Link} to={"/ClinicalStaff/patientmanagement"}>
       <ListItemIcon>
        < PersonAddAltIcon />
       </ListItemIcon>
-      <ListItemText primary="Add New Patient"   />
-    </ListItemButton>
-
-
-    <ListItemButton component={Link} to={"/ClinicalStaff/patientmessage"}>
-      <ListItemIcon>
-       < HelpIcon />
-      </ListItemIcon>
-      <ListItemText primary="Contact Patient"   />
+      <ListItemText primary="Patient Management"   />
     </ListItemButton>
 
 
@@ -50,17 +42,9 @@ export const mainListItems = (
       <ListItemIcon>
         <SupportAgentIcon />
       </ListItemIcon>
-      <ListItemText primary="Tech Support" />
+      <ListItemText primary="Tech Help" />
     </ListItemButton>
    
-    <ListItemButton component={Link} to={"/ClinicalStaff/calendar"}>
-      <ListItemIcon>
-       < CalendarMonthIcon />
-      </ListItemIcon>
-      <ListItemText primary="Schedule"   />
-    </ListItemButton>
-
-
   </React.Fragment>
 );
 
