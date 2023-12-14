@@ -1,13 +1,15 @@
 import moment from 'moment';
 import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Spin } from 'antd';
+import { Modal, Radio, Spin } from 'antd';
 import { Calendar, momentLocalizer, Views } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { doctorGetCalendar } from '../../api/calendar';
+import { doctorCreateAvailableTimeSegment, doctorGetCalendar } from '../../api/calendar';
 import { readLoginData } from '../../loginData';
 import CreateAvailableTimeSegments from './CreateAvailableTimeSegments';
-import AddTask from '../DoctorTasks/AddTask';
+import AddTask, { createTask } from '../DoctorTasks/AddTask';
+
+const dateFormat = 'YYYY-MM-DD HH:mm:ss';
 
 const getBackgroundColorFromStatus = (type, status) => {
   if(type === 1){ return 'MediumSlateBlue' }
@@ -75,9 +77,81 @@ const TimeSegmentsView = (props) => {
   );
 }
 
-const CreateDoctorTask = (props) => {
-  console.log("CreateDoctorTask", props);
+const DialogSelector = (props) => {
+  console.log("DialogSelector", props);
   return (props.type === 1 ? <AddTask {...props}/> : <CreateAvailableTimeSegments {...props}/>);
+}
+
+const CreateDoctorTask = (props) => {
+  const loginData = readLoginData();
+  const [ type, setType ] = useState(2);
+  const [ formContent, setFormContent ] = useState({
+    patient: undefined,
+    start: moment(props.start).format(dateFormat),
+    end: moment(props.end).format(dateFormat),
+    description: "",
+  });
+
+  const [valid, setValid] = useState(true);
+  const [confirmLoading, setConfirmLoading] = useState(false);
+
+  const handleFormChange = (change) => {
+    const newState = {...formContent, ...change};
+    setFormContent(newState);
+    updateValid(type, newState);
+  }
+
+  const updateValid = (newType, newState) => {
+    if(newType === 1){
+      setValid((newState.patient) && (moment(newState.start).isValid()) && (moment(newState.end).isValid()));
+    }else{
+      setValid((moment(newState.start).isValid()) && (moment(newState.end).isValid()));
+    }
+  }
+
+  const handleType = (type) => {
+    setType(type);
+    updateValid(type, formContent);
+  }
+
+  const handleOk = () => {
+    setConfirmLoading(true);
+    (async () => {
+      if(type === 1){
+        await createTask(
+          loginData.id,
+          formContent);
+      }else if(type === 2){
+        await doctorCreateAvailableTimeSegment(
+          loginData,
+          moment(formContent.start).toDate(),
+          moment(formContent.end).toDate(),
+          formContent.description);
+      }
+      props.onOk();
+    })();
+  };
+
+  return (
+    <Modal
+      title={ type === 1 ? "Add A Task" : "Add An Available Time Segment" }
+      open={true}
+      onOk={handleOk}
+      confirmLoading={confirmLoading}
+      onCancel={props.onCancel}
+      okButtonProps={{ disabled: !valid }}
+    >
+      <Radio.Group onChange={(e) => handleType(e.target.value)} defaultValue={type}>
+        <Radio.Button value={1}>Doctor Task</Radio.Button>
+        <Radio.Button value={2}>Time Segment</Radio.Button>
+      </Radio.Group>
+      <DialogSelector
+        type={type}
+        doctor={loginData.name}
+        {...formContent}
+        onChange={handleFormChange}/>
+    </Modal>
+  );
 }
 
 const DoctorCalendar = (props) => {
@@ -128,7 +202,6 @@ const DoctorCalendar = (props) => {
   }
 
   // states for the modal
-  const [ type, setType ] = useState(2);
   const [ open, setOpen ] = useState(false);
   const [ start, setStart] = useState(moment().toDate());
   const [ end, setEnd ] = useState(moment().add(1, 'hour').toDate());
@@ -163,15 +236,11 @@ const DoctorCalendar = (props) => {
     setOpen(false);
   };
 
-  const handleType = (type) => {
-    setType(type);
-  }
-
   return <>
       <Spin spinning={loading}>
         <TimeSegmentsView data={data} onRangeChange={handleRangeChange} onSelectSlot={handleSelectSlot} onSelectEvent={handleSelectEvent}/>
       </Spin>
-      { open ? <CreateDoctorTask type={type} onType={handleType} start={start} end={end} onOk={handleOk} onCancel={handleCancel}/> : null }
+      { open ? <CreateDoctorTask start={start} end={end} onOk={handleOk} onCancel={handleCancel}/> : null }
     </>;
 }
 

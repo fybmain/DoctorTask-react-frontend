@@ -3,12 +3,11 @@ import axios from "axios";
 import { Input, Modal, Radio } from "antd";
 import moment from 'moment';
 import { BASE_URL } from '../../constants';
-import { readLoginData } from '../../loginData';
 import PatientSelector from "./PatientSelector";
 
 const dateFormat = 'YYYY-MM-DD HH:mm:ss';
 
-const createTask = (doctor, state) => {
+export const createTask = (doctor, state) => {
   axios
     .post(`${BASE_URL}/api/users/tasks/add`, {
       Doctor: doctor,
@@ -25,10 +24,7 @@ const createTask = (doctor, state) => {
     });
 };
 
-
-const ModalContent = (props) => {
-  const start = moment(props.start).format(dateFormat);
-  const end = moment(props.end).format(dateFormat);
+const AddTask = (props) => {
   const onStart = (e) => {
     props.onChange({ start: e.target.value });
   };
@@ -49,9 +45,9 @@ const ModalContent = (props) => {
       <label for="patient">Patient:</label><br/>
       <PatientSelector value={props.patient} onChange={onPatient}/><br/>
       <label for="start">Start:</label><br/>
-      <input type="text" id="start" name="start" value={start} onChange={onStart}/><br/>
+      <input type="text" id="start" name="start" value={props.start} onChange={onStart}/><br/>
       <label for="end">End:</label><br/>
-      <input type="text" id="end" name="end" value={end} onChange={onEnd}/><br/>
+      <input type="text" id="end" name="end" value={props.end} onChange={onEnd}/><br/>
       <label for="description">Descrption:</label><br/>
       <Input.TextArea
         id="description"
@@ -64,50 +60,5 @@ const ModalContent = (props) => {
     </form>
   </>;
 };
-
-const AddTask = (props) => {
-  const loginData = readLoginData();
-  const [ formContent, setFormContent ] = useState({
-    patient: undefined,
-    start: props.start,
-    end: props.end,
-    description: "",
-  });
-
-  const [confirmLoading, setConfirmLoading] = useState(false);
-
-  const handleFormChange = (change) => {
-    setFormContent({...formContent, ...change});
-  }
-
-  const handleOk = () => {
-    setConfirmLoading(true);
-    (async () => {
-      await createTask(
-        loginData.id,
-        formContent);
-      props.onOk();
-    })();
-  };
-
-  return (
-    <Modal
-      title="Doctor Task Management System"
-      open={true}
-      onOk={handleOk}
-      confirmLoading={confirmLoading}
-      onCancel={props.onCancel}
-    >
-      <Radio.Group onChange={(e) => props.onType(e.target.value)} defaultValue={props.type}>
-        <Radio.Button value={1}>Task</Radio.Button>
-        <Radio.Button value={2}>Available Time Segment</Radio.Button>
-      </Radio.Group>
-      <ModalContent
-        doctor={loginData.name}
-        {...formContent}
-        onChange={handleFormChange}/>
-    </Modal>
-  );
-}
 
 export default AddTask;

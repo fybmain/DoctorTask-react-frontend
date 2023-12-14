@@ -110,3 +110,17 @@ export const getPatients = async (loginData) => {
     console.error('Error fetching data:', error);
   }
 };
+
+export const cancelAppointmentRequest = async (loginData, id) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/api/appointments/cancelAppointmentRequest`, {
+      loginData,
+      id,
+    });
+    if(response.data.status !== 'OK'){
+      throw new Error(response.data.status);
+    }
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};

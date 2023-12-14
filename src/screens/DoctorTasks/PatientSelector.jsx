@@ -43,6 +43,7 @@ const PatientSelector = (props) => {
       options={data}
       loading={loading}
       value={props.value}
+      status={((!props.value) ? 'error' : undefined)}
     />
   );
 };

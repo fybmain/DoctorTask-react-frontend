@@ -1,9 +1,9 @@
 import moment from 'moment';
 import React, { useState, useCallback } from 'react';
-import { Modal, Spin } from 'antd';
+import { Button, Modal, Spin } from 'antd';
 import { Calendar, momentLocalizer, Views } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { patientGetCalendar } from '../../api/calendar';
+import { cancelAppointmentRequest, patientGetCalendar } from '../../api/calendar';
 import { readLoginData } from '../../loginData';
 import PatientBookTimeDialog from './PatientBookTimeDialog';
 
@@ -45,9 +45,18 @@ const getColorFromStatus = (event) => {
   }
 }
 
+const canCancel = (record) => {
+  if(record.appointmentStatus === 1){
+    const now = moment();
+    return moment(record.start).subtract(2, 'day').isAfter(now);
+  }else if(record.appointmentStatus === 0){
+    return true;
+  }
+  return false;
+}
+
 const TimeSegmentsView = (props) => {
   const localizer = momentLocalizer(moment);
-  console.log("Data", props.data);
   const eventsList = props.data.map(e => ({
     id: e.id,
     title: e.description,
@@ -58,7 +67,6 @@ const TimeSegmentsView = (props) => {
     rawData: e,
   }));
   const eventStyleGetter = (event, start, end, isSelected) => {
-    console.log("event", event);
     return {
       style: {
         backgroundColor: getColorFromStatus(event).background,
@@ -169,9 +177,29 @@ const PatientCalendar = (props) => {
     }else{
       const startString = moment(data.start).format(dateFormat);
       const endString = moment(data.end).format(dateFormat);
-      Modal.info({
+      const handleCancel = async () => {
+        if(!canCancel(data)){
+          Modal.error({
+            title: 'Cannot cancel the appointment',
+            content: 'To cancel the appointment, there must be at least 48 hours before the start time.',
+          });
+        }
+
+        await cancelAppointmentRequest(loginData, data.id);
+        setNeedLoad(true);
+        modal.destroy();
+      }
+
+      var modal = Modal.info({
         title: `Time segment of ${data.doctor.name}`,
-        content: <p>From: {startString}<br/>To:{endString}<br/>Status:{getAppointmentState(data)}<br/>Description:{data.description}</p>,
+        content: <>
+          From: {startString}<br/>
+          To: {endString}<br/>
+          Status: {getAppointmentState(data)}<br/>
+          Doctor Description: {data.description}<br/>
+          { (data.appointmentStatus!==null) ? (<>Patient Description: {data.patientDescription}<br/></>) : null }
+          <Button type="dashed" danger onClick={handleCancel} disabled={!canCancel(data)}>Cancel Appointment</Button>
+          </>,
       });
     }
   }

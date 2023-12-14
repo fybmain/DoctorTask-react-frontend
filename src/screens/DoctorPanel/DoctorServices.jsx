@@ -8,16 +8,24 @@ import {
   CardActionArea, 
 
 } from "@mui/material";
+import { useEffect, useState, useRef } from "react";
+import { useNavigate, useOutletContext } from "react-router-dom";
+import { SurgeryPlanning } from "../../components/DoctorComponents/SurgeryPlanning";
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import HealingIcon from '@mui/icons-material/Healing';
 import EventNoteIcon from '@mui/icons-material/EventNote';
-import { useState } from "react";
-import { useOutletContext } from "react-router-dom";
-import { SurgeryPlanning } from "../../components/DoctorComponents/SurgeryPlanning";
+import { Modal, Button, TextField } from '@mui/material';
+import { DataGrid } from '@mui/x-data-grid';
+
 export function DoctorServices() {
+    const navigate = useNavigate();
     const doctorId = useOutletContext();
 
     const services = [
         { icon: HealingIcon, title: "Surgery Planning", description: "Expert surgical planning and post-operative care." },
+        { icon: CalendarMonthIcon, title: "Calendar", description: "Doctor Calendar" },
+        { icon: MedicalServicesIcon, title: "Doctor Task Management System", description: "All Tasks of the Doctor" },
         // Add more services as needed
         { icon:  EventNoteIcon, title: "Some Other Planning", description: "The Description of other planning" },
     ];
@@ -27,6 +35,10 @@ export function DoctorServices() {
         // Placeholder for click handler logic
         if (title === "Surgery Planning") {
             setOpenSurgeryModal(true);
+        } else if (title === "Calendar") {
+            navigate('/calendar');
+        } else if (title === "Doctor Task Management System") {
+            navigate('/TasksList');
         }
         console.log(`Clicked on ${title}`);
     };
